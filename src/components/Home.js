@@ -20,9 +20,9 @@ const Home = () => {
   return(
     <div>
       <h1>Home</h1>
-      <p>{name}</p>
-      <p>{lastName}</p>
-      <Link to="/"/>
+      <p>Nome: {name}</p>
+      <p>Sobrenome: {lastName}</p>
+      <Link to="/">Voltar</Link>
     </div>
   )
 }
