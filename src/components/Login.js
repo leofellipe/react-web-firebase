@@ -8,7 +8,15 @@ const Login = () => {
 
   const handleLogin = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    window.location.href = '/home'
+      .then(() => { window.location.href = '/home' })
+      .catch((error) => {
+        if (error.code === 'auth/user-not-found') {
+          alert('Usuário não encontrado!')
+        } else {
+          console.log(error.message);
+        }
+      });
+
   }
 
   return (
