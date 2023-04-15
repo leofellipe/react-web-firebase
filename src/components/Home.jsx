@@ -25,7 +25,6 @@ const Home = () => {
         <div className={styles.subcontainer}>
           <p><span>Nome:</span> {name}</p>
           <p style={{ marginBottom: '18px' }}><span>Sobrenome:</span> {lastName}</p>
-          <a style={{ marginLeft: '8px' }}><Link to="/">Voltar</Link></a>
         </div>
       </div>
     </div>
