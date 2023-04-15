@@ -1,13 +1,14 @@
 import { useState } from "react"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import firebase from "../database/Firebase"
+import styles from '../styles/home.module.css'
 
 const Home = () => {
   const [name, setName] = useState()
   const [lastName, setLastName] = useState()
-  
+
   firebase.auth().onAuthStateChanged(async (user) => {
-    if(user) {
+    if (user) {
       const uid = user.uid
 
       await firebase.firestore().collection('users').doc(uid).get()
@@ -15,14 +16,18 @@ const Home = () => {
           setName(response.data().nome)
           setLastName(response.data().sobrenome)
         })
-    } 
-  })  
-  return(
+    }
+  })
+  return (
     <div>
-      <h1>Home</h1>
-      <p>Nome: {name}</p>
-      <p>Sobrenome: {lastName}</p>
-      <Link to="/">Voltar</Link>
+      <h1 style={{ textAlign: 'center' }}>Home</h1>
+      <div className={styles.container}>
+        <div className={styles.subcontainer}>
+          <p><span>Nome:</span> {name}</p>
+          <p style={{ marginBottom: '18px' }}><span>Sobrenome:</span> {lastName}</p>
+          <a style={{ marginLeft: '8px' }}><Link to="/">Voltar</Link></a>
+        </div>
+      </div>
     </div>
   )
 }
