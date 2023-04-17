@@ -7,7 +7,7 @@ const Main = () => {
     <div>
       <h1 style={{ textAlign: 'center' }}>Main</h1>
       <div className={styles.container}>
-        <Link to="/cadaster"><p>Cadastro</p></Link>
+        <Link to="/register"><p>Cadastro</p></Link>
         <Link to="/login"><p>Login</p></Link>
       </div>
     </div>
