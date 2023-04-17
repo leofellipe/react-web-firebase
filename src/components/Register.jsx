@@ -2,7 +2,7 @@ import { useState } from "react"
 import firebase from "../database/Firebase"
 import styles from '../styles/cadaster.module.css'
 
-const Cadaster = () => {
+const Register = () => {
   const [name, setName] = useState()
   const [lastName, setLastName] = useState()
   const [email, setEmail] = useState()
@@ -21,7 +21,7 @@ const Cadaster = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Cadaster</h1>
+      <h1 style={{ textAlign: 'center' }}>Cadastro</h1>
       <div className={styles.container}>
         <div className={styles.subcontainer}>
           <div>
@@ -50,4 +50,4 @@ const Cadaster = () => {
   )
 }
 
-export default Cadaster
+export default Register

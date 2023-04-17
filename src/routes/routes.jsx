@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "../components/Main";
 import Home from "../components/Home";
-import Cadaster from "../components/Cadaster";
+import Register from "../components/Register";
 import Login from "../components/Login";
 
 const Router = () => {
@@ -10,8 +10,8 @@ const Router = () => {
       <Routes>
         <Route path="/" Component={Main} />
         <Route path="/home" Component={Home} />
-        <Route path="/cadaster" Component={Cadaster} />
-        <Route path="/Login" Component={Login} />
+        <Route path="/register" Component={Register} />
+        <Route path="/login" Component={Login} />
       </Routes>
     </BrowserRouter>
   )
