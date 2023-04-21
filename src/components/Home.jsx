@@ -5,6 +5,7 @@ import styles from '../styles/home.module.css'
 const Home = () => {
   const [name, setName] = useState()
   const [lastName, setLastName] = useState()
+  const [date, setDate] = useState()
 
   firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
@@ -14,6 +15,7 @@ const Home = () => {
         .then((response) => {
           setName(response.data().nome)
           setLastName(response.data().sobrenome)
+          setDate(response.data().data)
         })
     }
   })
@@ -24,6 +26,7 @@ const Home = () => {
         <div className={styles.subcontainer}>
           <p><span>Nome:</span> {name}</p>
           <p style={{ marginBottom: '18px' }}><span>Sobrenome:</span> {lastName}</p>
+          <p style={{ marginBottom: '18px' }}><span>Data de nascimento:</span> {date}</p>
         </div>
       </div>
     </div>

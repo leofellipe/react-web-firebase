@@ -5,6 +5,7 @@ import styles from '../styles/cadaster.module.css'
 const Register = () => {
   const [name, setName] = useState()
   const [lastName, setLastName] = useState()
+  const [date, setDate] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
@@ -13,7 +14,8 @@ const Register = () => {
       .then(async (response) => {
         await firebase.firestore().collection('users').doc(response.user.uid).set({
           nome: name,
-          sobrenome: lastName
+          sobrenome: lastName,
+          data: date
         })
       })
     window.location.href = '/home'
@@ -35,10 +37,16 @@ const Register = () => {
             <input type="text" onChange={(ev) => setLastName(ev.target.value)} />
           </div>
           <div>
+            <label>Data de nascimento:</label>
+            <br />
+            <input type="date" onChange={(ev) => setDate(ev.target.value)} />
+          </div>
+          <div>
             <label>E-mail:</label>
             <br />
             <input type="email" onChange={(ev) => setEmail(ev.target.value)} />
-          </div><div>
+          </div>
+          <div>
             <label>Senha:</label>
             <br />
             <input type="password" onChange={(ev) => setPassword(ev.target.value)} />
